@@ -6,6 +6,7 @@ import 'package:star_project/view/Minigames/MemoryGame/menu_memory.dart';
 import 'package:star_project/view/Minigames/QuizGame/menu_quiz.dart';
 import 'package:star_project/view/Minigames/QuizGame/quiz.dart';
 import 'package:star_project/view/Minigames/QuizGame/result.dart';
+import 'package:star_project/view/Time%20line/time_line.dart';
 import '../view/Minigames/menu_games.dart';
 import '../view/menu.dart';
 
@@ -40,4 +41,7 @@ class Navegacao {
   static void learningPage(context) => Navigator.push(
       context, MaterialPageRoute(builder: (context) => Learning_page()));
 
+  //timeLine
+  static void timeline(context) => Navigator.push(
+      context, MaterialPageRoute(builder: (context) => TimeLine()));
 }

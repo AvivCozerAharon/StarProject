@@ -56,7 +56,7 @@ class Menu_Estado extends State<Menu> {
                   width: MediaQuery.of(context).size.width * 0.75,
                   height: 50,
                   child: Button.buttonMenu(
-                    onPressed: () => null,
+                    onPressed: () => Navegacao.timeline(context),
                     text: const Text(
                       "Timeline",
                       style: TextStyle(color: Estilo.corSecundaria,fontSize: 17,fontFamily: Estilo.fonteBotao),
