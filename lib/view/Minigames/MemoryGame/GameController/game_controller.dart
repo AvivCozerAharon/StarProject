@@ -61,7 +61,10 @@ class Game {
               builder: (BuildContext context) =>
                   AlertDialog(
                     backgroundColor: Estilo.corPrimaria,
-                    content: Column(
+                    content:
+                    SingleChildScrollView(
+                        physics: const ClampingScrollPhysics(),
+                    child: Column(
                         children: [
                     Container(
                     margin: const EdgeInsets.only(top: 5),
@@ -73,7 +76,7 @@ class Game {
                     ),
                     child: Column(
                       children: [
-                        Container(
+                        SizedBox(
                           width: 200,
                           height: 200,
                           child: Image.asset(
@@ -156,7 +159,7 @@ class Game {
                                 ),
                               )),
                         ],
-              )));
+              ))));
         });
       } else {
         await Future.delayed(const Duration(seconds: 1), () {

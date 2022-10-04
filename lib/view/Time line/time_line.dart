@@ -19,8 +19,8 @@ class TimeLine_Estado extends State<TimeLine> {
         body: Center(
           child: Column(
             children: [
-              Text('Preview|Comming Soon',style: TextStyle(color: Estilo.corSecundaria,fontSize: 20,fontFamily: Estilo.fonteTitulo),),
-              SizedBox(height: 10,),
+              const Text('Preview|Comming Soon',style: TextStyle(color: Estilo.corSecundaria,fontSize: 20,fontFamily: Estilo.fonteTitulo),),
+              const SizedBox(height: 10,),
               Image.asset('files/timeline.png'),
 
             ],
