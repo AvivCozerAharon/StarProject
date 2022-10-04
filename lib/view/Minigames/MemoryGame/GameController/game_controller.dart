@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:star_project/controller/controllerNavegacao.dart';
 import 'package:star_project/model/model.dart';
 import 'package:star_project/prefabs/button.dart';
 import 'package:star_project/view/Minigames/MemoryGame/GameController/game_settings.dart';
@@ -172,7 +173,7 @@ class Game {
 
       _resetPlay();
       touch++;
-      _checkGameResult();
+      _checkGameResult(context);
     }
   }
 
@@ -181,9 +182,89 @@ class Game {
     _choiceCallback = [];
   }
 
-  static _checkGameResult() async {
+  static _checkGameResult(BuildContext context) async {
     bool allMatched = _corrects == _numPairs;
     print(allMatched);
-    await Future.delayed(const Duration(seconds: 1), () => win = allMatched);
+    if(allMatched){
+    await Future.delayed(const Duration(seconds: 2), () { win = allMatched;
+
+    showDialog(
+        barrierColor: Estilo.corPrimaria,
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) =>
+        WillPopScope(
+            onWillPop: () async {
+             return false;
+            },
+            child:
+            AlertDialog(
+                backgroundColor: Estilo.corPrimaria,
+                content:
+                SingleChildScrollView(
+                    physics: const ClampingScrollPhysics(),
+                    child: Column(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 5),
+                          alignment: Alignment.center,
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(0.0),
+                            ),
+                          ),
+                          child: Column(
+                            children: [
+                               const Text(
+                                'YOU WON THE MEMORY GAME!',
+                                style: TextStyle(
+                                    fontFamily: Estilo.fonteTitulo,
+                                    fontSize: 40,
+                                    color: Estilo.corSecundaria),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 50,),
+                              const Text(
+                                '🎊 🎉 Congratulations! 🎉🎊',
+                                style: TextStyle(
+                                    fontFamily: Estilo.fonteTexto,
+                                    fontSize: 35,
+                                    color: Estilo.corSecundaria),
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(height: 30,),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                const Icon(Icons.touch_app,color: Estilo.corSecundaria,size: 50,),
+                                Text(
+                                  ' You used ${touch.toString()} plays to win!',
+                                  style: const TextStyle(
+                                      fontFamily: Estilo.fonteTexto,
+                                      fontSize: 30,
+                                      color: Estilo.corSecundaria),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],),
+
+                              SizedBox(height: MediaQuery.of(context).size.height * 0.05,),
+                        Container(
+                            margin: const EdgeInsets.all(8),
+                            width: MediaQuery.of(context).size.width * 0.75,
+                            height: 50,
+                            child: Button.buttonMenu(
+                              onPressed: () => Navegacao.home(context),
+                              text: const Text(
+                                "Back to menu",
+                                style: TextStyle(color: Estilo.corSecundaria,fontSize: 17,fontFamily: Estilo.fonteBotao),
+                              ),
+                            )),
+                      ],
+                    ))])))));
+    }
+    );
   }
+  }
+
 }

@@ -40,6 +40,9 @@ class Minigames_menu_Estado extends State<Minigames_menu> {
                   text: "QUIZ GAME",
                   context: context,
                   onPressed: () => Navegacao.quiz(context)),
+              const SizedBox(
+                height: 20,
+              ),
               Button.buttonChoice(
                   img: "files/buttonBackground2.png",
                   text: "MEMORY GAME",

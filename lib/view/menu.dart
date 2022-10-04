@@ -17,7 +17,8 @@ class Menu_Estado extends State<Menu> {
       },
       child: Scaffold(
         backgroundColor: Estilo.corPrimaria,
-        body: Container(
+        body: SingleChildScrollView(
+          physics: const ClampingScrollPhysics(),
          // decoration: const BoxDecoration(gradient: LinearGradient(begin: Alignment.topLeft,end: Alignment.bottomRight, colors: [Color(0xff1F0D65),Color(0xffD9D9D9)])),
           child:Center(
             child: Column(

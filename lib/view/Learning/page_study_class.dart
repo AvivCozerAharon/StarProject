@@ -31,12 +31,13 @@ class _PageStudy extends State<PageStudy> {
                 decoration:  BoxDecoration(
                   image: DecorationImage(
                     alignment: Alignment.topCenter,
-                      image: AssetImage(widget.backgroundimg)),
+
+                      image: AssetImage(widget.backgroundimg), ),
                 ),
                 child: Center(
                     child: Column(children: <Widget>[
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.05,
+                        height: MediaQuery.of(context).size.height * 0.1,
                       ),
                   Button.buttonBack(
                       onPressed: () => Navegacao.learning(context)),

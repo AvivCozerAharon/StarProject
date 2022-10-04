@@ -48,6 +48,7 @@ class Memory_menu_Estado extends State<Memory_menu> {
                       fontWeight: FontWeight.normal),
                 ),
               ),
+
               Container(
                   margin: const EdgeInsets.only(top: 250),
                   width: MediaQuery.of(context).size.width * 0.88,
